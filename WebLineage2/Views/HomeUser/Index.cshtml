@@ -1,0 +1,89 @@
+﻿@{
+    ViewBag.Title = "Home Player Page";
+    Layout = "~/Views/Shared/layout-player.cshtml";
+    WebLineage2.Models.Account account = (WebLineage2.Models.Account)HttpContext.Current.Session["user"];
+    string hidePhone, hideSecretKey;
+    if (account.Phone.Length > 0)
+    {
+        hidePhone = account.Phone.Substring(0,account.Phone.Length - 3);
+        hidePhone = hidePhone + "***";
+    }
+    else
+    {
+        hidePhone = "not set yet";
+    }
+
+    if (account.SecretKey.Length > 0)
+    {
+        hideSecretKey = "****";
+    }
+    else
+    {
+        hideSecretKey = "not set yet";
+    }
+}
+<main class="main-content border-radius-lg ">
+    <!-- Navbar -->
+    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
+        <div class="container-fluid py-1 px-3">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+                    <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="~/HomeUser/Index">HomeUser</a></li>
+                    <li class="breadcrumb-item text-sm text-dark active" aria-current="page">index</li>
+                </ol>
+                <h6 class="font-weight-bolder mb-0">index</h6>
+            </nav>
+            <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+                <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+                </div>
+                <ul class="navbar-nav  justify-content-end">
+                    <li class="dropdown">
+                        @{
+                            <span class="d-sm-inline d-none">@account.Login</span>
+                        }
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End Navbar -->
+
+    <div style="margin-left:500px; margin-right:500px; margin-top:100px; margin-bottom:20px">
+        <div class="card h-100">
+            <div class="card-body p-3 pb-0">
+                <ul class="list-group">
+                    <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                        <div class="d-flex flex-column text-4xl">
+                            Account:
+                        </div>
+                        <div class="d-flex align-items-center text-4xl">
+                            <span class="text-dark font-weight-bold ms-sm-2">@account.Login</span>
+                            <span style="margin-left:110px"></span>
+                        </div>
+                    </li>
+
+                    <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                        <div class="d-flex flex-column text-4xl">
+                            Phone:
+                        </div>
+                        <div class="d-flex align-items-center text-4xl">
+                            <span class="text-dark font-weight-bold ms-sm-2">@hidePhone</span>
+                            <a class="btn bg-gradient-primary mb-0" href="~/HomeUser/Changephone/" style="margin-left:20px"><i class="material-icons text-lg">edit</i>&nbsp;&nbsp;&nbsp;&nbsp;Edit</a>
+                        </div>
+                    </li>
+
+                    <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                        <div class="d-flex flex-column text-4xl">
+                            Secret Key:
+                        </div>
+                        <div class="d-flex align-items-center text-4xl">
+                            <span class="text-dark font-weight-bold ms-sm-2">@hideSecretKey</span>
+                            <a class="btn bg-gradient-primary mb-0" href="~/HomeUser/Changesecretkey/" style="margin-left:20px"><i class="material-icons text-lg">edit</i>&nbsp;&nbsp;&nbsp;&nbsp;Edit</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</main>
+

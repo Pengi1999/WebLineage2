@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Sign Up Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section sectionCenterContent{
+    <div class="sign-up" style="width: 40%; height: fit-content; text-align: center; background: #004E64; padding: 20px; border-radius: 5px; margin-left: 310px; overflow: auto; border: 4px solid #000000">
+        <h2 class="signup__heading" style="color: #f0f0f0; font-size: 36px; text-align: center; padding: 50px 0 10px 0;">ĐĂNG KÝ TÀI KHOẢN</h2>
+        <p class="signup__already" ; style="font-size: 16px; color: #f0f0f0; text-align: center; padding: 16px 0 24px 0; position: relative; border-bottom: 1px solid rgba(57, 66, 93, 0.8);"> Đã có tài khoản? <a href="~/Login" class="signup__link">Đăng nhập</a> </p>
+        <form role="form" action="" method="post" autocomplete="off" class="signup__form" style="display: block; padding-top: 30px; text-align: center;">
+            <input type="hidden" value="1" name="register">
+            <div class="form__check">
+            </div>
+            <div class="form__group" style="margin-bottom: 10px">
+                <!--<input type="text" class="form__input" id="l2account" name="l2account" maxlength="14" placeholder="Tên tài khoản (Từ 4 đến 14 ký tự)" value="">-->
+                <input type="text" class="form__input" id="username" name="username" maxlength="14" placeholder="Account name (4 - 14 letters & numbers)" value="">
+            </div>
+            <div class="form__group" style="margin-bottom: 10px">
+                <!--<input type="password" class="form__input" id="l2password1" name="l2password1" maxlength="16" placeholder="Mật khẩu (Từ 6 đến 16 ký tự)" value="">-->
+                <input type="password" class="form__input" id="password" name="password" maxlength="16" placeholder="Password (6 - 16 letters & numbers)" value="">
+            </div>
+            <div class="form__group" style="margin-bottom: 10px">
+                <!--<input type="password" class="form__input" id="l2password2" name="l2password2" maxlength="16" placeholder="Nhập lại mật khẩu" value="">-->
+                <input type="password" class="form__input" id="confirmpassword" name="confirmpassword" maxlength="16" placeholder="Retype password" value="">
+            </div>
+            <div class="form__group" style="margin-bottom: 10px">
+                <!--<input type="email" class="form__input" id="l2secretkey1" name="l2secretkey1" maxlength="4" placeholder="Secret Key (4 numbers) (Dùng để lấy mật khẩu 1)" value="">-->
+                <input type="number" class="form__input" id="secretkey" name="secretkey" maxlength="4" placeholder="Secret Key (4 numbers)" value="">
+            </div>
+            <div class="form__group" style="margin-bottom: 10px">
+                <!--<input type="email" class="form__input" id="l2secretkey2" name="l2secretkey2" maxlength="4" placeholder="Secret Key (4 numbers) (Dùng để lấy mật khẩu 1)" value="">-->
+                <input type="number" class="form__input" id="confirmsecretkey" name="confirmsecretkey" maxlength="4" placeholder="Retype secret key" value="">
+            </div>
+            <div class="form__group" style="margin-bottom: 10px">
+                <!--<input type="text" class="form__input" id="l2phone" name="l2phone" maxlength="20" placeholder="Số điện thoại" value="">-->
+                <input type="text" class="form__input" id="phone" name="phone" maxlength="20" placeholder="Phone number" value="">
+            </div>
+            <div class="form-group" style="margin-bottom: 10px;">
+                <p class="text-danger">
+                    @TempData["error"]
+                </p>
+            </div>
+            <div class="form__group" style="margin-bottom: 10px;">
+                <button type="submit" class="form__submit">
+                    <span class="form__submit--text">ĐĂNG KÝ</span>
+                </button>
+            </div>
+        </form>
+    </div>
+}
