@@ -1,51 +1,170 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Sign Up Page";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
 }
+<!DOCTYPE html>
+<html lang="en">
 
-@section sectionCenterContent{
-    <div class="sign-up" style="width: 40%; height: fit-content; text-align: center; background: #004E64; padding: 20px; border-radius: 5px; margin-left: 310px; overflow: auto; border: 4px solid #000000">
-        <h2 class="signup__heading" style="color: #f0f0f0; font-size: 36px; text-align: center; padding: 50px 0 10px 0;">ĐĂNG KÝ TÀI KHOẢN</h2>
-        <p class="signup__already" ; style="font-size: 16px; color: #f0f0f0; text-align: center; padding: 16px 0 24px 0; position: relative; border-bottom: 1px solid rgba(57, 66, 93, 0.8);"> Đã có tài khoản? <a href="~/Login" class="signup__link">Đăng nhập</a> </p>
-        <form role="form" action="" method="post" autocomplete="off" class="signup__form" style="display: block; padding-top: 30px; text-align: center;">
-            <input type="hidden" value="1" name="register">
-            <div class="form__check">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/Areas/Admin/Assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="~/Areas/Admin/Assets/img/favicon.png">
+    <title>
+        Material Dashboard 2 by Creative Tim
+    </title>
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+    <!-- Nucleo Icons -->
+    <link href="~/Areas/Admin/Assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="~/Areas/Admin/Assets/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <!-- CSS Files -->
+    <link id="pagestyle" href="~/Areas/Admin/Assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />
+    <!-- Nepcha Analytics (nepcha.com) -->
+    <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
+    <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+</head>
+
+<body class="">
+    <div class="container position-sticky z-index-sticky top-0">
+        <div class="row">
+            <div class="col-12">
+                <!-- Navbar -->
+                <nav class="navbar navbar-expand-lg blur border-radius-lg top-0 z-index-3 shadow position-absolute mt-4 py-2 start-0 end-0 mx-4">
+                    <div class="container-fluid ps-2 pe-0">
+                        <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="~/Home">
+                            Home
+                        </a>
+                        <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon mt-2">
+                                <span class="navbar-toggler-bar bar1"></span>
+                                <span class="navbar-toggler-bar bar2"></span>
+                                <span class="navbar-toggler-bar bar3"></span>
+                            </span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navigation">
+                            <ul class="navbar-nav mx-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link d-flex align-items-center me-2 active" aria-current="page" href="~/Home/Features">
+                                        <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i>
+                                        Features
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link me-2" href="#">
+                                        <i class="fa fa-user opacity-6 text-dark me-1"></i>
+                                        Download
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link me-2" href="https://discord.gg/H3Dwr4FtUm">
+                                        <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
+                                        Discord
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link me-2" href="https://www.facebook.com/cuhaono113/">
+                                        <i class="fas fa-key opacity-6 text-dark me-1"></i>
+                                        Fanpage
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="navbar-nav d-lg-flex d-none">
+                                <li class="nav-item d-flex align-items-center">
+                                    <a class="btn btn-outline-primary btn-sm mb-0 me-2" target="_blank" href="~/Login">Login</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="~/Signup" class="btn btn-sm mb-0 me-1 bg-gradient-dark">Sign up</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <!-- End Navbar -->
             </div>
-            <div class="form__group" style="margin-bottom: 10px">
-                <!--<input type="text" class="form__input" id="l2account" name="l2account" maxlength="14" placeholder="Tên tài khoản (Từ 4 đến 14 ký tự)" value="">-->
-                <input type="text" class="form__input" id="username" name="username" maxlength="14" placeholder="Account name (4 - 14 letters & numbers)" value="">
-            </div>
-            <div class="form__group" style="margin-bottom: 10px">
-                <!--<input type="password" class="form__input" id="l2password1" name="l2password1" maxlength="16" placeholder="Mật khẩu (Từ 6 đến 16 ký tự)" value="">-->
-                <input type="password" class="form__input" id="password" name="password" maxlength="16" placeholder="Password (6 - 16 letters & numbers)" value="">
-            </div>
-            <div class="form__group" style="margin-bottom: 10px">
-                <!--<input type="password" class="form__input" id="l2password2" name="l2password2" maxlength="16" placeholder="Nhập lại mật khẩu" value="">-->
-                <input type="password" class="form__input" id="confirmpassword" name="confirmpassword" maxlength="16" placeholder="Retype password" value="">
-            </div>
-            <div class="form__group" style="margin-bottom: 10px">
-                <!--<input type="email" class="form__input" id="l2secretkey1" name="l2secretkey1" maxlength="4" placeholder="Secret Key (4 numbers) (Dùng để lấy mật khẩu 1)" value="">-->
-                <input type="number" class="form__input" id="secretkey" name="secretkey" maxlength="4" placeholder="Secret Key (4 numbers)" value="">
-            </div>
-            <div class="form__group" style="margin-bottom: 10px">
-                <!--<input type="email" class="form__input" id="l2secretkey2" name="l2secretkey2" maxlength="4" placeholder="Secret Key (4 numbers) (Dùng để lấy mật khẩu 1)" value="">-->
-                <input type="number" class="form__input" id="confirmsecretkey" name="confirmsecretkey" maxlength="4" placeholder="Retype secret key" value="">
-            </div>
-            <div class="form__group" style="margin-bottom: 10px">
-                <!--<input type="text" class="form__input" id="l2phone" name="l2phone" maxlength="20" placeholder="Số điện thoại" value="">-->
-                <input type="text" class="form__input" id="phone" name="phone" maxlength="20" placeholder="Phone number" value="">
-            </div>
-            <div class="form-group" style="margin-bottom: 10px;">
-                <p class="text-danger">
-                    @TempData["error"]
-                </p>
-            </div>
-            <div class="form__group" style="margin-bottom: 10px;">
-                <button type="submit" class="form__submit">
-                    <span class="form__submit--text">ĐĂNG KÝ</span>
-                </button>
-            </div>
-        </form>
+        </div>
     </div>
-}
+    <main class="main-content  mt-0">
+        <section>
+            <div class="page-header min-vh-100">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 start-0 text-center justify-content-center flex-column">
+                            <div class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center" style="background-image: url('/Areas/Admin/Assets/img/illustrations/illustration-signup.jpg'); background-size: cover;">
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column ms-auto me-auto ms-lg-auto me-lg-5">
+                            <div class="card card-plain">
+                                <div class="card-header">
+                                    <h4 class="font-weight-bolder">Sign Up</h4>
+                                    <p class="mb-0">Fill form below to register</p>
+                                </div>
+                                <div class="card-body">
+                                    <form role="form" action="" method="post" autocomplete="off">
+                                        <div class="input-group input-group-outline mb-3">
+                                            <input type="text" class="form-control" name="username" maxlength="14" placeholder="Account name (4 - 14 letters & numbers)">
+
+                                        </div>
+                                        <div class="input-group input-group-outline mb-3">
+                                            <input type="password" class="form-control" name="password" maxlength="16" placeholder="Password (6 - 16 letters & numbers)">
+                                        </div>
+                                        <div class="input-group input-group-outline mb-3">
+                                            <input type="password" class="form-control" name="confirmpassword" maxlength="16" placeholder="Retype password">
+                                        </div>
+                                        <div class="input-group input-group-outline mb-3">
+                                            <input type="password" class="form-control" name="secretkey" maxlength="4" placeholder="Secret Key (4 numbers)">
+                                        </div>
+                                        <div class="input-group input-group-outline mb-3">
+                                            <input type="password" class="form-control" name="confirmsecretkey" maxlength="4" placeholder="Retype secret key">
+                                        </div>
+                                        <div class="input-group input-group-outline mb-3">
+                                            <input type="text" class="form-control" name="phone" maxlength="20" placeholder="Phone number">
+                                        </div>
+                                        <div class="input-group input-group-outline mb-3">
+                                            <p class="text-danger">
+                                                @TempData["error"]
+                                            </p>
+                                        </div>
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Sign Up</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="card-footer text-center pt-0 px-lg-2 px-1">
+                                    <p class="mb-2 text-sm mx-auto">
+                                        Already have an account?
+                                        <a href="~/Login" class="text-primary text-gradient font-weight-bold">Login</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!--   Core JS Files   -->
+    <script src="~/Areas/Admin/Assets/js/core/popper.min.js"></script>
+    <script src="~/Areas/Admin/Assets/js/core/bootstrap.min.js"></script>
+    <script src="~/Areas/Admin/Assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="~/Areas/Admin/Assets/js/plugins/smooth-scrollbar.min.js"></script>
+    <script>
+        var win = navigator.platform.indexOf('Win') > -1;
+        if (win && document.querySelector('#sidenav-scrollbar')) {
+            var options = {
+                damping: '0.5'
+            }
+            Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+        }
+    </script>
+    <!-- Github buttons -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="~/Areas/Admin/Assets/js/material-dashboard.min.js?v=3.1.0"></script>
+</body>
+
+</html>

@@ -1,37 +1,170 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Login Page";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
 }
-
-@section sectionCenterContent{
-    <div class="sign-up" style="width: 40%; height: fit-content; text-align: center; background: #004E64; padding: 20px; margin-left:300px; margin-top:50px;border-radius: 5px; overflow: auto; border: 4px solid #000000">
-        <h2 class="signup__heading" style="color: #f0f0f0; font-size: 36px; text-align: center; padding: 50px 0 10px 0;">Login</h2>
-        <p class="signup__already" ; style="font-size: 16px; color: #f0f0f0; text-align: center; padding: 16px 0 24px 0; position: relative; border-bottom: 1px solid rgba(57, 66, 93, 0.8);"/>
-        <form role="form" method="post" action="" autocomplete="off" class="signup__form" style="display: block; padding-top: 30px; text-align: center;">
-            <input type="hidden" value="1" name="doLogin">
-            <input type="submit" style="display:none">
-            <div class="form__group" style="margin-bottom: 10px">
-                <input type="text" class="form__input" id="sw_name" name="username" maxlength="64" placeholder="Username">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/Areas/Admin/Assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="~/Areas/Admin/Assets/img/favicon.png">
+    <title>
+        @ViewBag.Title
+    </title>
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+    <!-- Nucleo Icons -->
+    <link href="~/Areas/Admin/Assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="~/Areas/Admin/Assets/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <!-- CSS Files -->
+    <link id="pagestyle" href="~/Areas/Admin/Assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />
+    <!-- Nepcha Analytics (nepcha.com) -->
+    <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
+    <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+</head>
+<body class="bg-gray-200">
+    <div class="container position-sticky z-index-sticky top-0">
+        <div class="row">
+            <div class="col-12">
+                <!-- Navbar -->
+                <nav class="navbar navbar-expand-lg blur border-radius-lg top-0 z-index-3 shadow position-absolute mt-4 py-2 start-0 end-0 mx-4">
+                    <div class="container-fluid ps-2 pe-0">
+                        <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="~/Home">
+                            Home
+                        </a>
+                        <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon mt-2">
+                                <span class="navbar-toggler-bar bar1"></span>
+                                <span class="navbar-toggler-bar bar2"></span>
+                                <span class="navbar-toggler-bar bar3"></span>
+                            </span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navigation">
+                            <ul class="navbar-nav mx-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link d-flex align-items-center me-2 active" aria-current="page" href="~/Home/Features">
+                                        <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i>
+                                        Features
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link me-2" href="#">
+                                        <i class="fa fa-user opacity-6 text-dark me-1"></i>
+                                        Download
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link me-2" href="https://discord.gg/H3Dwr4FtUm">
+                                        <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
+                                        Discord
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link me-2" href="https://www.facebook.com/cuhaono113/">
+                                        <i class="fas fa-key opacity-6 text-dark me-1"></i>
+                                        Fanpage
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="navbar-nav d-lg-flex d-none">
+                                <li class="nav-item d-flex align-items-center">
+                                    <a class="btn btn-outline-primary btn-sm mb-0 me-2" target="_blank" href="~/Login">Login</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="~/Signup" class="btn btn-sm mb-0 me-1 bg-gradient-dark">Sign up</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <!-- End Navbar -->
             </div>
-            <div class="form__group" style="margin-bottom: 10px">
-                <input type="password" class="form__input" id="password" name="password" maxlength="16" placeholder="Password">
-            </div>
-            <div class="form-group" style="margin-bottom: 10px;">
-                <p class="text-danger">
-                    @TempData["error"]
-                </p>
-            </div>
-            <div class="form__group" style="margin-bottom: 10px">
-                <button type="submit"
-                        class="form__submit">
-                    <span class="form__submit--text">Login</span>
-                </button>
-            </div>
-        </form>
-            <div class="signin__option">
-                <a href="~/Signup" class="signup__link">Signup</a><span class="signin__seperate">|</span><a href="/forgot" class="signup__link">Reset Password?</a>
-            </div>
+        </div>
     </div>
-}
+    <main class="main-content  mt-0">
+        <div class="page-header align-items-start min-vh-100" style="background-image: url('https://images.unsplash.com/photo-1497294815431-9365093b7331?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80');">
+            <span class="mask bg-gradient-dark opacity-6"></span>
+            <div class="container my-auto">
+                <div class="row">
+                    <div class="col-lg-4 col-md-8 col-12 mx-auto">
+                        <div class="card z-index-0 fadeIn3 fadeInBottom">
+                            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                                <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
+                                    <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">Login</h4>
+                                    <div class="row mt-3">
+                                        <div class="col-2 text-center ms-auto">
+                                            <a class="btn btn-link px-3" href="javascript:;">
+                                                <i class="fa fa-facebook text-white text-lg"></i>
+                                            </a>
+                                        </div>
+                                        <div class="col-2 text-center px-1">
+                                            <a class="btn btn-link px-3" href="javascript:;">
+                                                <i class="fa fa-github text-white text-lg"></i>
+                                            </a>
+                                        </div>
+                                        <div class="col-2 text-center me-auto">
+                                            <a class="btn btn-link px-3" href="javascript:;">
+                                                <i class="fa fa-google text-white text-lg"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <!-- action để trống mặc định nhảy vào action cùng tên-->
+                                <form role="form" action="" method="post" class="text-start" autocomplete="off">
+                                    <div class="input-group input-group-outline my-3">
+                                        <label class="form-label">Username</label>
+                                        <input type="text" class="form-control" name="username" maxlength="14" placeholder="Username" autofocus>
+                                    </div>
+                                    <div class="input-group input-group-outline mb-3">
+                                        <label class="form-label">Password</label>
+                                        <input type="password" class="form-control" name="password" maxlength="16" placeholder="Password">
+                                    </div>
+                                    <div class="input-group input-group-outline mb-3">
+                                        <p class="text-danger">
+                                            @TempData["error"]
+                                        </p>
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">Login</button>
+                                    </div>
+                                    <p class="mt-4 text-sm text-center">
+                                        Don't have an account?
+                                        <a href="~/Signup" class="text-primary text-gradient font-weight-bold">Sign up</a>
+                                    </p>
+                                    <p class="mt-4 text-sm text-center">
+                                        Forgot password?
+                                        <a href="#" class="text-primary text-gradient font-weight-bold">Reset password</a>
+                                    </p>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!--   Core JS Files   -->
+    <script src="~/Areas/Admin/Assets/js/core/popper.min.js"></script>
+    <script src="~/Areas/Admin/Assets/js/core/bootstrap.min.js"></script>
+    <script src="~/Areas/Admin/Assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="~/Areas/Admin/Assets/js/plugins/smooth-scrollbar.min.js"></script>
+    <script>
+        var win = navigator.platform.indexOf('Win') > -1;
+        if (win && document.querySelector('#sidenav-scrollbar')) {
+            var options = {
+                damping: '0.5'
+            }
+            Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+        }</script>
+    <!-- Github buttons -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="~/Areas/Admin/Assets/js/material-dashboard.min.js?v=3.1.0"></script>
+</body>
 
+</html>
