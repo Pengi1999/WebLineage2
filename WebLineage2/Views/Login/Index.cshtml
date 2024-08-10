@@ -117,11 +117,21 @@
                                 <!-- action để trống mặc định nhảy vào action cùng tên-->
                                 <form role="form" action="" method="post" class="text-start" autocomplete="off">
                                     <div class="input-group input-group-outline my-3">
-                                        <input type="text" class="form-control" name="username" maxlength="14" placeholder="Username" autofocus>
+                                        <input type="text" class="form-control" name="username" maxlength="14" placeholder="Username" onkeypress="return onlyNumberLetterKey(event)" autofocus>
                                     </div>
                                     <div class="input-group input-group-outline mb-3">
-                                        <input type="password" class="form-control" name="password" maxlength="16" placeholder="Password">
+                                        <input type="password" class="form-control" name="password" maxlength="16" placeholder="Password" onkeypress="return onlyNumberLetterKey(event)">
                                     </div>
+                                    <script>
+                                        function onlyNumberLetterKey(evt) {
+                                            // Only ASCII character in that range allowed
+                                            // Only numbers & letters
+                                            let ASCIICode = (evt.which) ? evt.which : evt.keyCode
+                                            if (!(ASCIICode > 47 && ASCIICode < 58) && !(ASCIICode > 64 && ASCIICode < 91) && !(ASCIICode > 96 && ASCIICode < 123))
+                                                return false;
+                                            return true;
+                                        }
+                                    </script>
                                     <div class="input-group input-group-outline mb-3">
                                         <p class="text-danger">
                                             @TempData["error"]
