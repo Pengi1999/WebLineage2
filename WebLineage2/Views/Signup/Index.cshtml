@@ -106,24 +106,41 @@
                                 <div class="card-body">
                                     <form role="form" action="" method="post" autocomplete="off">
                                         <div class="input-group input-group-outline mb-3">
-                                            <input type="text" class="form-control" name="username" maxlength="14" placeholder="Account name (4 - 14 letters & numbers)">
-
+                                            <input type="text" class="form-control" name="username" maxlength="14" placeholder="Account name (4 - 14 letters & numbers)" onkeypress="return onlyNumberLetterKey(event)">
                                         </div>
                                         <div class="input-group input-group-outline mb-3">
-                                            <input type="password" class="form-control" name="password" maxlength="16" placeholder="Password (6 - 16 letters & numbers)">
+                                            <input type="password" class="form-control" name="password" maxlength="16" placeholder="Password (6 - 16 letters & numbers)" onkeypress="return onlyNumberLetterKey(event)">
                                         </div>
                                         <div class="input-group input-group-outline mb-3">
-                                            <input type="password" class="form-control" name="confirmpassword" maxlength="16" placeholder="Retype password">
+                                            <input type="password" class="form-control" name="confirmpassword" maxlength="16" placeholder="Retype password" onkeypress="return onlyNumberLetterKey(event)">
                                         </div>
                                         <div class="input-group input-group-outline mb-3">
-                                            <input type="password" class="form-control" name="secretkey" maxlength="4" placeholder="Secret Key (4 numbers)">
+                                            <input type="password" class="form-control" name="secretkey" maxlength="4" placeholder="Secret Key (4 numbers)" onkeypress="return onlyNumberKey(event)">
                                         </div>
                                         <div class="input-group input-group-outline mb-3">
-                                            <input type="password" class="form-control" name="confirmsecretkey" maxlength="4" placeholder="Retype secret key">
+                                            <input type="password" class="form-control" name="confirmsecretkey" maxlength="4" placeholder="Retype secret key" onkeypress="return onlyNumberKey(event)">
                                         </div>
                                         <div class="input-group input-group-outline mb-3">
-                                            <input type="text" class="form-control" name="phone" maxlength="20" placeholder="Phone number">
+                                            <input type="text" class="form-control" name="phone" maxlength="20" placeholder="Phone number" onkeypress="return onlyNumberKey(event)">
                                         </div>
+                                        <script>
+                                            function onlyNumberKey(evt) {
+                                                // Only ASCII character in that range allowed
+                                                // Only numbers
+                                                let ASCIICode = (evt.which) ? evt.which : evt.keyCode
+                                                if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+                                                    return false;
+                                                return true;
+                                            }
+                                            function onlyNumberLetterKey(evt) {
+                                                // Only ASCII character in that range allowed
+                                                // Only numbers & letters
+                                                let ASCIICode = (evt.which) ? evt.which : evt.keyCode
+                                                if (!(ASCIICode > 47 && ASCIICode < 58) && !(ASCIICode > 64 && ASCIICode < 91) && !(ASCIICode > 96 && ASCIICode < 123))
+                                                    return false;
+                                                return true;
+                                            }
+                                        </script>
                                         <div class="input-group input-group-outline mb-3">
                                             <p class="text-danger">
                                                 @TempData["error"]

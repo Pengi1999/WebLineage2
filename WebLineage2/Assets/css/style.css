@@ -1020,11 +1020,12 @@
      transition: 0s;
 }
 .header-top {
-    background: url(../images/background-home.png);
+    background-image: url(../images/background-home.png);
     background-size: cover;
     background-repeat: no-repeat;
-    min-height: 1200px;
-    background-position: center top;
+    min-height:1080px;
+    max-height:1080px;
+    background-position: center center;
 }
  .header {
      position: absolute;
